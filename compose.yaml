@@ -1,38 +1,4 @@
 services:
-  # vaadin-jena:
-  #   build: ./vaadin-jena
-  #   # command: bash -c "git pull && mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V"
-  #   volumes:
-  #     - mvn-cache:/root/.m2
-
-  # jenax:
-  #   build: ./jenax
-  #   depends_on:
-  #     vaadin-jena:
-  #       condition: service_completed_successfully
-  #   volumes:
-  #     - mvn-cache:/root/.m2
-
-  # facete-build:
-  #   build: ./facete-build
-  #   depends_on:
-  #     jenax:
-  #       condition: service_completed_successfully
-  #   volumes:
-  #     - mvn-cache:/root/.m2
-  #     - app-target:/app/target
-  
-  # docker:
-  #   image: docker:dind
-  #   depends_on:
-  #     facete-build:
-  #       condition: service_completed_successfully
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock
-  #     - app-target:/app
-  #   # command: ["docker", "load", "-i", "/app/facete-docker-image.tar"]
-  #   command: docker load -i /app/facete-docker-image.tar
-
   facete-build:
     build: ./facete
     volumes:
